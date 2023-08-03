@@ -25,11 +25,7 @@ function App() {
         <>
             <Header />
 
-            <Landing />
-
-            <About />
-
-            <Contact />
+            {handlePageView()}
 
             <Footer count={count} user={name} />
         </>
