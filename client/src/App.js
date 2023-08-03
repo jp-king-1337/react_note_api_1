@@ -27,7 +27,7 @@ function App() {
 
             {handlePageView()}
 
-            <Footer count={count} user={name} />
+            <Footer />
         </>
     );
 }
