@@ -3,9 +3,9 @@ function Header(propsObj) {
         <header className="row justify-between align-center">
             <h3>Logo</h3>
             <nav>
-                <a href="#">Home</a>
-                <a href="#">About</a>
-                <a href="#">Contact</a>
+                <a className="active" href="#">Home</a>
+                <a className="active" href="#">About</a>
+                <a className="active" href="#">Contact</a>
             </nav>
         </header>
     )
