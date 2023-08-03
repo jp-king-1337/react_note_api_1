@@ -1,21 +1,23 @@
 // Component Imports
-import Header from './components/Header';
-import Footer from './components/Footer';
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 // Page imports
-import Landing from './pages/Landing';
+import Landing from "./pages/Landing";
 
 function App() {
-  const count = 10;
-  const name = 'jd';
+    const count = 10;
+    const name = "JP";
 
-  return (
-    <>
-      <Header blah={'blah'} countAmount={count} userName={name} />
+    return (
+        <>
+            <Header blah={"blah"} countAmount={count} userName={name} />
 
-      <Footer count={count} user={name} />
-    </>
-  );
+            <Landing />
+
+            <Footer count={count} user={name} />
+        </>
+    );
 }
 
 export default App;

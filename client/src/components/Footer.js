@@ -1,13 +1,13 @@
 function Footer(propsObj) {
-  const date = new Date();
-  const year = date.getFullYear();
+    const date = new Date();
+    const year = date.getFullYear();
 
-  return (
-    <footer className="row justify-between">
-      <p>&copy; {year}</p>
-      <p>Dev'd and Designed by JD Tadlock</p>
-    </footer>
-  )
+    return (
+        <footer className="row justify-between">
+            <p>&copy; {year}</p>
+            <p>Developed and Designed by JP King</p>
+        </footer>
+    )
 }
 
 export default Footer;
