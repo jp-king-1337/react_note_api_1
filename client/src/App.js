@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 // Component Imports
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -8,7 +10,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 
 function App() {
-    let page = "landing";
+    let [page, setPage] = useState("landing");
 
     const handlePageView = () => {
         switch (page) {
@@ -23,7 +25,7 @@ function App() {
 
     return (
         <>
-            <Header />
+            <Header page={page} setPage={setPage} />
 
             {handlePageView()}
 
