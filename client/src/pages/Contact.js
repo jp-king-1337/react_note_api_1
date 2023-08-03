@@ -1,10 +1,9 @@
-function Landing() {
+function Contact() {
     return (
         <main>
-            <h1>Landing</h1>
-            <p>Welcome to our React Starter Site</p>
+            <h1>Contact</h1>
         </main>
     )
 }
 
-export default Landing;
+export default Contact;
