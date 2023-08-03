@@ -8,11 +8,22 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 
 function App() {
-    const page = "landing";
+    let page = "landing";
+
+    const handlePageView = () => {
+        switch (page) {
+            case "landing":
+                return <Landing />;
+            case "about":
+                return <About />;
+            default:
+                return <Contact />;
+        }
+    }
 
     return (
         <>
-            <Header blah={"blah"} countAmount={count} userName={name} />
+            <Header />
 
             <Landing />
 
