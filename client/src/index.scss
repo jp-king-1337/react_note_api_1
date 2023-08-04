@@ -1,10 +1,27 @@
 // https://coolors.co/301934-6290c3-c2e7da-f1ffe7-baff29
+// Inverse of the above colors:
+// https://coolors.co/cfe6cb-9d6f3c-3d1825-0e0018-4500d6
 :root {
     --color1: #301934; // Dark purple
     --color2: #6290c3; // Silver Lake Blue
     --color3: #c2e7da; // Mint Green
     --color4: #f1ffe7; // Honeydew
     --color5: #baff29; // Lime
+
+    /* Inverse colors */
+    --darkColor1: #cfe6cb; // Inverse of Dark purple
+    --darkColor2: #9d6f3c; // Inverse of Silver Lake Blue
+    --darkColor3: #3d1825; // Inverse of Mint Green
+    --darkColor4: #0e0018; // Inverse of Honeydew
+    --darkColor5: #4500d6; // Inverse of Lime
+}
+
+
+html,
+body,
+#root,
+.dark {
+    height: 100%;
 }
 
 body {
@@ -15,7 +32,7 @@ body {
         sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    padding: 0 4%;
+    padding: 0;
 }
 
 .row,
@@ -39,7 +56,68 @@ body {
     text-align: center;
 }
 
+.container {
+    padding: 0 4%;
+}
+
+.dark {
+    background: #777;
+    color: #fff;
+
+    nav a {
+        color: #fff;
+    }
+
+    form button {
+        background: var(--color1);
+        color: var(--color4);
+    }
+}
+
 header {
+    .toggle-wrapper {
+        display: flex;
+        align-items: center;
+
+        p {
+            margin: 0 5px;
+        }
+
+        .toggle-bar {
+            background: #999;
+            height: 25px;
+            width: 50px;
+            border: 1px solid #000;
+            border-radius: 30px;
+            position: relative;
+
+            .toggle {
+                position: absolute;
+                height: 20px;
+                width: 20px;
+                top: 2px;
+                left: 5px;
+                background: #333;
+                border-radius: 50%;
+                transition: left .4s;
+
+                &.dark-mode {
+                    left: 25px;
+                    background: #222;
+                }
+            }
+
+            &.light-mode {
+                background: #fff;
+                border: 1px solid #000;
+            }
+        }
+
+        // .toggle.light-mode {
+        //     background: #ccc;
+        // }
+    }
+
     nav a {
         text-decoration: none;
         color: #000;
@@ -68,7 +146,7 @@ form {
         border-radius: 3px;
         padding: 8px 10px;
         cursor: pointer;
-        background: var(--color1);
-        color: var(--color4);
+        background: var(--color2);
+        color: var(--color1);
     }
 }
