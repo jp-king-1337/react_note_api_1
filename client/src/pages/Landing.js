@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 
-function Landing() {
-    const [studentName, setStudentName] = useState("");
-    const [students, setStudents] = useState(["Erin", "Hernan", "Liam", "Jonathan"]);
+function Landing({ studentName, setStudentName, students, setStudents }) {
 
     const handleNameInput = (event) => {
         setStudentName(event.target.value);

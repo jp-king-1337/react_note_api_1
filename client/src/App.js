@@ -15,11 +15,14 @@ function App() {
     const [students, setStudents] = useState(["Erin", "Hernan", "Liam", "Jonathan"]);
 
     const handlePageView = () => {
-        
-
         switch (page) {
             case "landing":
-                return <Landing />;
+                return <Landing 
+                studentName={studentName}
+                setStudentName={setStudentName}
+                students={students}
+                setStudents={setStudents}
+                />;
             case "about":
                 return <About />;
             default:
