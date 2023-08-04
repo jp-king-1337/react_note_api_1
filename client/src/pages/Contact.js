@@ -15,7 +15,8 @@ function Contact() {
         const value = event.target.value;
 
         setFormData({
-            ...formData,
+            ...formData, // This ensures that we don't lose the values of whichever thing we're not typing in
+            // If typing userName, it ensures that email and message don't clear out
             [stateProp]: value
         });
     };
