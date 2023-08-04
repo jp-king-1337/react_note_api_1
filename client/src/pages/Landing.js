@@ -8,6 +8,11 @@ function Landing() {
         setStudentName(event.target.value);
     }
 
+    const addStudent = () => {
+        setStudents([...students, studentName]);
+        setStudentName("");
+    }
+
     return (
         <main>
             <h1>Landing</h1>
@@ -18,8 +23,8 @@ function Landing() {
                 <p key={i}>{student}</p>
             ))}
 
-            <input onChange={handleNameInput} type="text" placeholder="Type student name" />
-            <button onClick={() => setStudents([...students, studentName])}>Add Student</button>
+            <input onChange={handleNameInput} value={studentName} type="text" placeholder="Type student name" />
+            <button onClick={addStudent}>Add Student</button>
         </main>
     )
 }
