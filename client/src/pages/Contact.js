@@ -38,7 +38,14 @@ function Contact() {
             })
         })
             .then(res => res.json())
-            .then(data => console.log(data))
+            .then(data => {
+                console.log(data);
+                setFormData({
+                    userName: "",
+                    email: "",
+                    message: ""
+                });
+            })
             .catch(err => console.log(err));
     }
 
