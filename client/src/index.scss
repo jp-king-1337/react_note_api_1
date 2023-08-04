@@ -87,6 +87,7 @@ header {
             background: #999;
             height: 25px;
             width: 50px;
+            border: 1px solid #000;
             border-radius: 30px;
             position: relative;
 
@@ -96,15 +97,25 @@ header {
                 width: 20px;
                 top: 2px;
                 left: 5px;
-                background: #444;
+                background: #333;
                 border-radius: 50%;
                 transition: left .4s;
 
                 &.dark-mode {
                     left: 25px;
+                    background: #222;
                 }
             }
+
+            &.light-mode {
+                background: #fff;
+                border: 1px solid #000;
+            }
         }
+
+        // .toggle.light-mode {
+        //     background: #ccc;
+        // }
     }
 
     nav a {

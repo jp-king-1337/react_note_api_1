@@ -27,8 +27,8 @@ function Header(propsObj) {
 
             <div className="toggle-wrapper row align-center">
                 <p>Light</p>
-                <div onClick={toggleMode} className="toggle-bar">
-                    <span className={`toggle ${propsObj.darkMode ? "dark-mode" : ""}`}></span>
+                <div onClick={toggleMode} className={`toggle-bar ${propsObj.darkMode ? "dark-mode" : "light-mode"}`}>
+                    <span className={`toggle ${propsObj.darkMode ? "dark-mode" : "light-mode"}`}></span>
                 </div>
                 <p>Dark</p>
             </div>
