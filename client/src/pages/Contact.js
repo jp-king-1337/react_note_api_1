@@ -21,6 +21,21 @@ function Contact() {
         });
     };
 
+    const handleSubmit = event => {
+        event.preventDefault();
+
+        const url = "https://api.web3forms.com/submit";
+        const access_key = process.env.ACCESS_KEY;
+
+        fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(formData)
+        });
+    }
+
     return (
         <main>
             <h1 className="text-center">Contact Me</h1>
@@ -30,7 +45,10 @@ function Contact() {
             <p>email: {formData.email}</p>
             <p>message: {formData.message}</p> */}
 
-            <form className="column">
+            <form
+                onSubmit={handleSubmit}
+                className="column">
+                <input type="hidden" name="access_key" value={access_key} />
                 <input
                     name="userName"
                     onChange={handleInputChange}
