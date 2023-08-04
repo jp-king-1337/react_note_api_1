@@ -32,8 +32,14 @@ function Contact() {
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(formData)
-        });
+            body: JSON.stringify({
+                ...formData,
+                access_key
+            })
+        })
+            .then(res => res.json())
+            .then(data => console.log(data))
+            .catch(err => console.log(err));
     }
 
     return (
@@ -48,7 +54,6 @@ function Contact() {
             <form
                 onSubmit={handleSubmit}
                 className="column">
-                <input type="hidden" name="access_key" value={access_key} />
                 <input
                     name="userName"
                     onChange={handleInputChange}
