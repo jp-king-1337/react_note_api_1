@@ -26,9 +26,9 @@ function Contact() {
             <h1 className="text-center">Contact Me</h1>
 
             {/* An example to assist understanding of how handleInputChange() works */}
-            <p>userName: {formData.userName}</p>
+            {/* <p>userName: {formData.userName}</p>
             <p>email: {formData.email}</p>
-            <p>message: {formData.message}</p>
+            <p>message: {formData.message}</p> */}
 
             <form className="column">
                 <input
