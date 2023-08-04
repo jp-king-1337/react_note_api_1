@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 
-function Landing() {
-    const [studentName, setStudentName] = useState("");
-    const [students, setStudents] = useState(["Erin", "Hernan", "Liam", "Jonathan"]);
+function Landing({ studentName, setStudentName, students, setStudents }) {
 
     const handleNameInput = (event) => {
         setStudentName(event.target.value);
@@ -11,6 +9,12 @@ function Landing() {
     const addStudent = () => {
         setStudents([...students, studentName]);
         setStudentName("");
+    }
+
+    const handleKeyPress = (event) => {
+        if (event.key === "Enter") {
+            addStudent();
+        }
     }
 
     return (
@@ -23,7 +27,7 @@ function Landing() {
                 <p key={i}>{student}</p>
             ))}
 
-            <input onChange={handleNameInput} value={studentName} type="text" placeholder="Type student name" />
+            <input onChange={handleNameInput} onKeyDown={handleKeyPress} value={studentName} type="text" placeholder="Type student name" />
             <button onClick={addStudent}>Add Student</button>
         </main>
     )
