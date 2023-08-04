@@ -10,9 +10,13 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 
 function App() {
-    let [page, setPage] = useState("landing");
+    const [page, setPage] = useState("landing");
+    const [studentName, setStudentName] = useState("");
+    const [students, setStudents] = useState(["Erin", "Hernan", "Liam", "Jonathan"]);
 
     const handlePageView = () => {
+        
+
         switch (page) {
             case "landing":
                 return <Landing />;
