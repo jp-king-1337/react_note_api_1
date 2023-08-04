@@ -11,7 +11,8 @@ function Contact() {
     });
 
     const handleInputChange = event => {
-        console.log(event.target.value);
+        const stateProp = event.target.name;
+        const value = event.target.value;
     };
 
     return (
@@ -19,7 +20,7 @@ function Contact() {
             <h1 className="text-center">Contact Me</h1>
 
             <form className="column">
-                <input onChange={handleInputChange} value={formData.userName} type="text" placeholder="Enter name" />
+                <input name="userName" onChange={handleInputChange} value={formData.userName} type="text" placeholder="Enter name" />
                 <input onChange={handleInputChange} type="email" placeholder="Enter email address" />
                 <textarea onChange={handleInputChange} cols="30" rows="10" placeholder="Enter your message" />
                 <button>Submit</button>
