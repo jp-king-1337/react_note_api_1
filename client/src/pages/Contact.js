@@ -1,22 +1,19 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 function Contact() {
-    // const [userName, setUserName] = useState("");
-    // const [email, setEmail] = useState("");
-    // const [message, setMessage] = useState("");
     const [formData, setFormData] = useState({
         userName: "",
         email: "",
         message: ""
     });
+    const [showConfirmation, setShowConfirmation] = useState(false);
 
     const handleInputChange = event => {
         const stateProp = event.target.name;
         const value = event.target.value;
 
         setFormData({
-            ...formData, // This ensures that we don't lose the values of whichever thing we're not typing in
-            // If typing userName, it ensures that email and message don't clear out
+            ...formData,
             [stateProp]: value
         });
     };
@@ -25,7 +22,7 @@ function Contact() {
         event.preventDefault();
 
         const url = "https://api.web3forms.com/submit";
-        const access_key = process.env.ACCESS_KEY;
+        const access_key = "45ea0a30-6748-4a2f-b94b-e69469fa4e0b";
 
         fetch(url, {
             method: "POST",
@@ -36,15 +33,14 @@ function Contact() {
                 ...formData,
                 access_key
             })
-        })
-            .then(res => res.json())
+        }).then(res => res.json())
             .then(data => {
-                console.log(data);
                 setFormData({
                     userName: "",
                     email: "",
                     message: ""
                 });
+                setShowConfirmation(true);
             })
             .catch(err => console.log(err));
     }
@@ -53,10 +49,7 @@ function Contact() {
         <main>
             <h1 className="text-center">Contact Me</h1>
 
-            {/* An example to assist understanding of how handleInputChange() works */}
-            {/* <p>userName: {formData.userName}</p>
-            <p>email: {formData.email}</p>
-            <p>message: {formData.message}</p> */}
+            {showConfirmation && <p className="text-center confirmation">Thanks for your message! I'll get back to you soon.</p>}
 
             <form
                 onSubmit={handleSubmit}
@@ -66,18 +59,20 @@ function Contact() {
                     onChange={handleInputChange}
                     value={formData.userName}
                     type="text"
-                    placeholder="Enter name" />
+                    placeholder="Enter your name" />
                 <input
                     name="email"
                     onChange={handleInputChange}
+                    value={formData.email}
                     type="email"
-                    placeholder="Enter email address" />
+                    placeholder="Enter your email address" />
                 <textarea
                     name="message"
                     onChange={handleInputChange}
+                    value={formData.message}
                     cols="30"
                     rows="10"
-                    placeholder="Enter your message" />
+                    placeholder="Enter your message"></textarea>
                 <button>Submit</button>
             </form>
         </main>

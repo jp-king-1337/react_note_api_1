@@ -10,21 +10,22 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 
 // Configuring .env file
-dotenv.config();
+// dotenv.config();
 
 function App() {
     const [page, setPage] = useState("landing");
     const [studentName, setStudentName] = useState("");
     const [students, setStudents] = useState(["Erin", "Hernan", "Liam", "Jonathan"]);
+    const [darkMode, setDarkMode] = useState(false);
 
     const handlePageView = () => {
         switch (page) {
             case "landing":
-                return <Landing 
-                studentName={studentName}
-                setStudentName={setStudentName}
-                students={students}
-                setStudents={setStudents}
+                return <Landing
+                    studentName={studentName}
+                    setStudentName={setStudentName}
+                    students={students}
+                    setStudents={setStudents}
                 />;
             case "about":
                 return <About />;
@@ -34,13 +35,17 @@ function App() {
     }
 
     return (
-        <>
-            <Header page={page} setPage={setPage} />
+        <div className={`container ${darkMode ? "dark" : ""}`}>
+            <Header
+                darkMode={darkMode}
+                setDarkMode={setDarkMode}
+                page={page}
+                setPage={setPage} />
 
             {handlePageView()}
 
             <Footer />
-        </>
+        </div>
     );
 }
 
