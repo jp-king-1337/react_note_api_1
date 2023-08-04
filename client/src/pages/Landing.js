@@ -11,6 +11,12 @@ function Landing({ studentName, setStudentName, students, setStudents }) {
         setStudentName("");
     }
 
+    const handleKeyPress = (event) => {
+        if (event.key === "Enter") {
+            addStudent();
+        }
+    }
+
     return (
         <main>
             <h1>Landing</h1>
@@ -21,7 +27,7 @@ function Landing({ studentName, setStudentName, students, setStudents }) {
                 <p key={i}>{student}</p>
             ))}
 
-            <input onChange={handleNameInput} value={studentName} type="text" placeholder="Type student name" />
+            <input onChange={handleNameInput} onKeyDown={handleKeyPress} value={studentName} type="text" placeholder="Type student name" />
             <button onClick={addStudent}>Add Student</button>
         </main>
     )
