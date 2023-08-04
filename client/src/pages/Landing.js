@@ -10,8 +10,13 @@ function Landing() {
             {students.map((student, i) => (
                 <p key={i}>{student}</p>
             ))}
+
+            <input type="text" placeholder="Type student name" />
+            <button id="add-btn">Add Student</button>
         </main>
     )
 }
+
+
 
 export default Landing;
