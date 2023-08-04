@@ -4,7 +4,8 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "dev": "cd ./client && npm run start"
+        "oldDev": "cd ./client && npm run start",
+        "dev": "cd ./client && npx env-cmd -f ../.env npm run start"
     },
     "keywords": [],
     "author": "",

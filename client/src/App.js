@@ -10,6 +10,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 
 console.log(process.env);
+console.log(process.env.REACT_APP_ACCESS_KEY);
 
 function App() {
     const [page, setPage] = useState("landing");
