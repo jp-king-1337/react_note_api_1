@@ -24,6 +24,8 @@ function Contact() {
         const url = "https://api.web3forms.com/submit";
         const access_key = process.env.REACT_APP_ACCESS_KEY;
 
+        console.log(access_key);
+
         fetch(url, {
             method: "POST",
             headers: {

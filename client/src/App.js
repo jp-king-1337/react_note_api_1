@@ -9,6 +9,8 @@ import Landing from "./pages/Landing";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 
+console.log(process.env);
+
 function App() {
     const [page, setPage] = useState("landing");
     const [studentName, setStudentName] = useState("");
