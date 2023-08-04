@@ -13,8 +13,6 @@ function Landing() {
             <h1>Landing</h1>
             <p>Welcome to our React Starter Site</p>
 
-            <p style={{ background: studentName }}>{studentName}</p>
-
             <h3>Student List:</h3>
             {students.map((student, i) => (
                 <p key={i}>{student}</p>
