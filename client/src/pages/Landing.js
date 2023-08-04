@@ -1,12 +1,15 @@
 function Landing() {
-    const students = ["Erin", "Hernan", "Liam", "Jonathan"];
+    const [students, setStudents] = useState(["Erin", "Hernan", "Liam", "Jonathan"]);
 
     return (
         <main>
             <h1>Landing</h1>
             <p>Welcome to our React Starter Site</p>
 
-            {students.map(student => )}
+            <h3>Student List:</h3>
+            {students.map((student, i) => (
+                <p key={i}>{student}</p>
+            ))}
         </main>
     )
 }
