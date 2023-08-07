@@ -1,9 +1,7 @@
 const router = require("express").Router();
 
-router.get("/test", (req, res) => {
-    res.send({
-        message: "Test successful."
-    })
+router.post("/", (req, res) => {
+
 });
 
 module.exports = router;

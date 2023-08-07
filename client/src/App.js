@@ -11,9 +11,6 @@ import Landing from "./pages/Landing";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 
-// Configuring .env file
-// dotenv.config();
-
 function App() {
     const [studentName, setStudentName] = useState("");
     const [students, setStudents] = useState([]);
