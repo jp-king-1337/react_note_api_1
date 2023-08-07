@@ -1,14 +1,15 @@
-import React, { useState } from "react";
+import { addName } from "../utils";
 
-function Landing({ studentName, setStudentName, students, setStudents }) {
+function Landing(props) {
 
     const handleNameInput = (event) => {
-        setStudentName(event.target.value);
+        props.setStudentName(event.target.value);
     }
 
     const addStudent = () => {
-        setStudents([...students, studentName]);
-        setStudentName("");
+        const names = addName(props.studentName)
+        props.setStudents([...names]);
+        props.setStudentName("");
     }
 
     const handleKeyPress = (event) => {
@@ -23,11 +24,14 @@ function Landing({ studentName, setStudentName, students, setStudents }) {
             <p>Welcome to our React Starter Site</p>
 
             <h3>Student List:</h3>
-            {students.map((student, i) => (
+
+            {!props.students.length && <p>No students have been added.</p>}
+
+            {props.students.map((student, i) => (
                 <p key={i}>{student}</p>
             ))}
 
-            <input onChange={handleNameInput} onKeyDown={handleKeyPress} value={studentName} type="text" placeholder="Type student name" />
+            <input onChange={handleNameInput} onKeyDown={handleKeyPress} value={props.studentName} type="text" placeholder="Type student name" />
             <button onClick={addStudent}>Add Student</button>
         </main>
     )

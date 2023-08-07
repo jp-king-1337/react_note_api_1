@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { Routes, Route } from "react-router-dom";
+import { getNames } from "./utils";
 
 // Component Imports
 import Header from "./components/Header";
@@ -13,38 +15,37 @@ console.log(process.env);
 console.log(process.env.REACT_APP_ACCESS_KEY);
 
 function App() {
-    const [page, setPage] = useState("landing");
     const [studentName, setStudentName] = useState("");
-    const [students, setStudents] = useState(["Erin", "Hernan", "Liam", "Jonathan"]);
+    const [students, setStudents] = useState([]);
     const [darkMode, setDarkMode] = useState(false);
 
-    const handlePageView = () => {
-        switch (page) {
-            case "landing":
-                return <Landing
-                    studentName={studentName}
-                    setStudentName={setStudentName}
-                    students={students}
-                    setStudents={setStudents}
-                />;
-            case "about":
-                return <About />;
-            default:
-                return <Contact />;
-        }
-    }
+    useEffect(() => {
+        const names = getNames();
+
+        setStudents([...names]);
+    }, []);
 
     return (
         <div className={`container ${darkMode ? "dark" : ""}`}>
             <Header
                 darkMode={darkMode}
-                setDarkMode={setDarkMode}
-                page={page}
-                setPage={setPage} />
+                setDarkMode={setDarkMode} />
 
-            {handlePageView()}
+            <Routes>
+                <Route path="/" element={(
+                    <Landing
+                        studentName={studentName}
+                        setStudentName={setStudentName}
+                        students={students}
+                        setStudents={setStudents} />
+                )} />
 
-            <Footer />
+                <Route path="/about" element={<About />} />
+
+                <Route path="/contact" element={<Contact />} />
+            </Routes>
+
+            <Footer studentName={studentName} />
         </div>
     );
 }
