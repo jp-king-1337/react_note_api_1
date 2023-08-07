@@ -22,7 +22,7 @@ function Contact() {
         event.preventDefault();
 
         const url = "https://api.web3forms.com/submit";
-        const access_key = "95bb745b-ba15-48d1-9079-3141c573b06c";
+        const access_key = process.env.REACT_APP_ACCESS_KEY;
 
         fetch(url, {
             method: "POST",
