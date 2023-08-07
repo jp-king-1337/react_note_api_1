@@ -34,9 +34,10 @@ function App() {
             <Routes>
                 <Route path="/" element={(
                     <Landing
+                        studentName={studentName}
                         setStudentName={setStudentName}
-                        setStudents={setStudents}
-                        students={students} />
+                        students={students}
+                        setStudents={setStudents} />
                 )} />
 
                 <Route path="/about" element={<About />} />
