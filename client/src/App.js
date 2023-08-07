@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 // Component Imports
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Modal from "./components/Modal";
 
 // Page imports
 import Landing from "./pages/Landing";
@@ -18,6 +19,7 @@ function App() {
     const [studentName, setStudentName] = useState("");
     const [students, setStudents] = useState([]);
     const [darkMode, setDarkMode] = useState(false);
+    const [showModal, setShowModal] = useState(false);
 
     useEffect(() => {
         const names = getNames();
@@ -34,6 +36,8 @@ function App() {
                     setStudentName={setStudentName}
                     students={students}
                     setStudents={setStudents}
+                    showModal={showModal}
+                    setShowModal={setShowModal}
                 />;
             case "about":
                 return <About />;
@@ -52,7 +56,9 @@ function App() {
 
             {handlePageView()}
 
-            <Footer />
+            <Modal showModal={showModal} />
+
+            <Footer studentName={studentName} />
         </div>
     );
 }
